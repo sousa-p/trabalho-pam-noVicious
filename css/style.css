@@ -1,0 +1,511 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #303030;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #505050;
+    border-radius: 1px;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+button {
+    cursor: pointer;
+}
+
+/*
+MODAL SUPERAÇÕES
+*/
+.none {
+    display: none !important;
+    background: transparent;
+    z-index: -999;
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(1px);
+}
+
+.wrapper-modal {
+    width: 350px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    display: inherit;
+    flex-direction: inherit;
+    padding: 0 10px 15px 15px;
+    border-radius: 5px;
+    border: 3px solid #702a2a;
+    background: #963737;
+}
+
+#modalAddSuperacao > .wrapper-modal {
+    height: 250px;
+}
+
+.wrapper-modal .titulo {
+    font-size: 1em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.fecharModal {
+    color: #fff;
+    font-weight: 500;
+    align-self: end;
+    cursor: pointer;
+    transition: 0.2s all linear;
+}
+
+.fecharModal:hover {
+    color: rgb(220, 220, 220);
+}
+
+.formsAddSuperacao {
+    display: flex;
+    height: 100%;
+    margin-right: 5px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.formsAddSuperacao .wrapper_inputs {
+    display: inherit;
+    flex-direction: inherit;
+    align-items: inherit;
+    width: 95%;
+    gap: 15px;
+}
+
+.wrapper_label__input {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper-modal label {
+    color: rgb(220, 220, 220);
+    font-size: 0.9em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.wrapper_label__input input {
+    width: 65%;
+    height: 20px;
+    padding: 2px 15px;
+    border-radius: 2px;
+}
+
+.wrapper-modal input:focus-visible,
+.wrapper-modal textarea:focus-visible {
+    outline: 1px solid;
+    border: none;
+}
+
+.add {
+    width: 150px;
+    padding: 10px 0;
+    background: #78a851;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.2s all linear;
+}
+
+.add:hover {
+    background: #7dad55;
+    box-shadow: 0 0 15px #8ac05d3b;
+}
+
+/*
+HEADER
+*/
+
+header,
+footer {
+    width: 100%;
+    height: 50px;
+    background-color: #963737;
+}
+
+.header-wrapper,
+.footer-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+nav {
+    width: 50%;
+}
+
+.logo,
+#home {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.15em;
+    text-decoration: none;
+    transition: 0.2s all linear;
+}
+
+#home {
+    font-size: 1em;
+    margin-left: 20px;
+}
+
+.logo:hover,
+#home:hover {
+    color: rgb(230, 230, 230);
+}
+
+/*
+MAIN
+*/
+
+main {
+    width: 100%;
+    height: 100%;
+}
+
+.main-wrapper {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+/*
+SUPERAÇÕES
+*/
+#superacoes {
+    background-color: #282828;
+    height: calc(100vh - 100px);
+}
+
+.header-superacoes {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #303030;
+    cursor: default;
+    transition: 0.2s all ease;
+}
+
+.header-superacoes:hover {
+    background: #303030;
+}
+
+.excluirSuperacao,
+#adicionar-superacao,
+.excluirNota {
+    display: none;
+    z-index: -999;
+    color: transparent;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.header-superacoes:hover #adicionar-superacao,
+.wrapper-nota:hover .excluirNota {
+    display: block;
+    color: rgb(165, 165, 165);
+    z-index: 0;
+    cursor: pointer;
+    transition: inherit;
+}
+
+#adicionar-superacao:hover {
+    color: #fff;
+    padding-bottom: 3px;
+}
+
+.titulo {
+    display: inline;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+#superacoes .titulo {
+    color: rgb(165, 165, 165);
+}
+
+#superacoes ul {
+    width: 100%;
+    height: calc(100% - 50px);
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow: auto;
+}
+
+#superacoes ul li {
+    max-width: 100%;
+    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 0px 20px;
+    color: rgb(165, 165, 165);
+}
+
+#superacoes ul li p {
+    max-width: 95%;
+    overflow-wrap: break-word;
+}
+
+li:hover {
+    transition: 0.2s all ease;
+    background-color: #303030;
+    cursor: pointer;
+}
+
+li:hover .excluirSuperacao {
+    display: block;
+    color: rgb(165, 165, 165);
+    z-index: 0;
+    cursor: pointer;
+}
+
+li:hover .excluirSuperacao:hover {
+    transition: inherit;
+    color: #fff;
+}
+
+#controlador {
+    padding-left: 20px;
+    background-color: #252525;
+}
+
+/*
+NOTAS
+*/
+
+.notasRecentes {
+    font-size: 1.8em;
+}
+
+.notasRecentes,
+.semSuperacao_semNota {
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+.semSuperacao_semNota {
+    margin: 0 auto;
+    font-size: 1.3em;
+    color: rgb(180, 180, 180);
+}
+
+/*
+MODAL NOTAS
+*/
+
+#modalAddNota > .wrapper-modal {
+    width: auto;
+}
+
+#modalAddNota > .wrapper-modal textarea {
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    resize: none;
+}
+
+#modalAddNota > .wrapper-modal > .formsAddNota {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.header-controlador {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    padding-right: 10px;
+    flex-wrap: wrap-reverse;
+    gap: 15px;
+    overflow: hidden;
+}
+
+.header-controlador h1 {
+    color: rgb(180, 180, 180);
+}
+
+.wrapper-notas {
+    width: 100%;
+    max-height: calc(100vh - 175px);
+    overflow-wrap: break-word;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.wrapper-nota {
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px solid #303030;
+    transition: 0.2s all linear;
+    cursor: default;
+}
+
+.wrapper-nota:last-child {
+    border: none;
+}
+
+.wrapper-nota p {
+    flex-wrap: wrap;
+    max-width: 98%;
+    text-align: justify;
+    font-weight: 500;
+    letter-spacing: 0.75px;
+    color: rgb(180, 180, 180);
+}
+
+.excluirNota {
+    float: right;
+    padding: 0 10px;
+    transition: 0.2s all linear;
+}
+
+.excluirNota:hover {
+    color: rgb(150, 150, 150);
+}
+
+.dataNota {
+    color: rgb(165, 165, 165);
+}
+
+#addNota {
+    font-size: 0.9em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgb(168, 168, 168);
+    cursor: pointer;
+}
+
+/*
+FOOTER
+*/
+
+.credito {
+    font-size: 0.75em;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+/*
+TABLET
+*/
+
+@media (max-width: 850px) {
+    .excluirSuperacao,
+    #adicionar-superacao,
+    .excluirNota {
+        display: inherit;
+        z-index: 0;
+        color: rgb(180, 180, 180);
+    }
+    .main-wrapper {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        overflow-x: hidden;
+    }
+
+    .credito {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .main-wrapper {
+        display: block;
+    }
+
+    #superacoes {
+        margin: 0;
+        padding: 0;
+        border-bottom: #303030 3px solid;
+        height: 225px;
+    }
+
+    .header-superacoes {
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .header-superacoes #adicionar-superacao {
+        margin-left: 15px;
+    }
+
+    #superacoes ul li p {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #controlador {
+        min-height: calc(100vh - 240px);
+        padding-top: 15px;
+    }
+
+    .header-controlador {
+        margin: 0;
+    }
+
+    nav {
+        display: inherit;
+        justify-content: center;
+        align-items: baseline;
+        width: 100%;
+    }
+
+    .wrapper-modal {
+        width: 100%;
+    }
+
+    .wrapper-modal textarea {
+        width: 100%;
+    }
+}

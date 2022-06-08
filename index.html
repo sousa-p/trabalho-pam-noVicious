@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Vicious</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="modal none" id="modalAddSuperacao">
+        <div class="wrapper-modal">
+            <span class="fecharModal" onclick="fecharModal(modalAddSuperacao);">
+                x
+            </span>
+            <div class="formsAddSuperacao">
+                <p class="titulo">Adicionar Superação</p>
+                <div class="wrapper_inputs">
+                    <div class="wrapper_label__input">
+                        <label for="nome" class="label">Nome:</label><input type="text" class="input" id="nome">
+                    </div>
+                    <div class="wrapper_label__input">
+                        <label for="cor" class="label">Cor:</label><input type="color" value="#ffffff" class="input" id="cor">
+                    </div>
+                </div>
+                <button class="add" onclick="finalizarSuperacao();">
+                    Adicionar
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal none" id="modalAddNota">
+        <div class="wrapper-modal">
+            <span class="fecharModal" onclick="fecharModal(modalAddNota);">
+                x
+            </span>
+            <p class="titulo">Como foi hoje?</p>
+            <div class="formsAddNota">
+                <textarea class=".input" cols="60" rows="20"></textarea>
+                <button class="add addNota ">
+                    Adicionar
+                </button>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="header-wrapper">
+            <nav>
+                <a href="#" class="logo">No Vicious</a>
+                <a href="index.html" id="home">Home</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main-wrapper">
+            <div id="superacoes">
+                <div class="header-superacoes">
+                    <p class="titulo">Superações</p>
+                    <span id="adicionar-superacao" onclick="abrirModal(modalAddSuperacao);">+</span>
+                </div>
+
+                <ul>
+
+                </ul>
+            </div>
+            <div id="controlador">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-wrapper">
+            <p class="credito">Desenvolvido por Pedro S. Vicente</p>
+        </div>
+    </footer>
+</body>
+<script src="js/script.js"></script>
+
+</html>
